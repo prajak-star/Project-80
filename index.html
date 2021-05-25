@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            Guest list
+        </title>
+    </head>
+    <body>
+       <center>
+           <div>
+             <h1> Guest list </h1>
+             <input type="text" placeholder="Guest name" id="name1"> <button id="ab" onclick="addingname()"> Add </button> 
+              <button id="fb" onclick="findingname()"> Find </button>
+           </div>
+           <div id="namer">
+                
+           </div>
+           <h3 id="n2"> </h3>
+          <button id="s" onclick="sortering()"> Sort the names </button>
+       </center>
+    </body>
+
+ <script>
+  var stuarray=[];
+
+  function addingname() {
+     var guestname = document.getElementById("name1").value;
+      console.log(guestname);
+      stuarray.push(guestname);
+     document.getElementById("namer").innerHTML=stuarray;
+   }
+
+   function row(){
+      var names="";
+     for (var i = 0; i < stuarray.length ; i++) {
+        names= names + stuarray[i] + "<br>";
+     }
+     document.getElementById("namer").innerHTML=names;
+    }
+
+  function sortering(){
+       stuarray.sort();
+       console.log(stuarray);
+       document.getElementById("namer").innerHTML=stuarray;
+       row();
+   }
+
+   function findingname() {
+       var s= document.getElementById("name1").value;
+        var  found=0;
+        var k;
+
+        for (k =0 ; k < stuarray.length ; k++) {
+            if (s == stuarray[k]){
+                found=found+1;
+            }
+        }
+
+       document.getElementById("n2").innerHTML= "name found "+ found +" time/s";
+       console.log("name found"+ found +"time/s");
+   }
+
+ </script>
+
+</html>
